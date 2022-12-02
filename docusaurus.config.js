@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Larastats",
   tagline: "Monitoring in no-crazy mode",
-  url: "https://larastats.com",
+  url: "https://docs.larastats.com",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
