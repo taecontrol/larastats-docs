@@ -61,3 +61,10 @@ composer config http-basic.satis.taecontrol.com johndoe@example.com your-api-tok
 :::danger Take care
 We don't advise to add this file to your project version control system.
 :::
+
+Finally, run `larastats:install` this will add a migration file `create_larastats_table` and a config file `config/larastats.php`.
+
+```bash
+php artisan larastats:install
+php artisan migrate
+```
