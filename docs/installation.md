@@ -62,7 +62,8 @@ We don't advise to add this file to your project version control system.
 :::
 
 <br />
-At this point you should have two service providers registered in `config/app.php`:
+
+At this point you should have two service providers registered in `config/app.php`  :
 
 ```php
   'providers' => [
