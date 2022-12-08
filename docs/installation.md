@@ -41,18 +41,17 @@ It will prompt to provide your login credentials to Larastats site. We need this
 
 ```json
 {
-    "http-basic": {
-        "satis.taecontrol.com": {
-            "username": "johndoe@example.com",
-            "password": "your-api-token"
-        }
+  "http-basic": {
+    "satis.taecontrol.com": {
+      "username": "johndoe@example.com",
+      "password": "your-api-token"
     }
+  }
 }
 ```
 
 :::tip Composer tip
-You can create your `auth.json` file with composer:
-
+You can create your `auth.json` file with Composer:
 ```bash
 composer config http-basic.satis.taecontrol.com johndoe@example.com your-api-token
 ```
@@ -62,9 +61,30 @@ composer config http-basic.satis.taecontrol.com johndoe@example.com your-api-tok
 We don't advise to add this file to your project version control system.
 :::
 
-Finally, run `larastats:install` this will add a migration file `create_larastats_table` and a config file `config/larastats.php`.
+<br />
+At this point you should have two service providers registered in `config/app.php`:
+
+```php
+  'providers' => [
+    // ...
+    Taecontrol\Larastats\Providers\LarastatsServiceProvider::class,
+    Taecontrol\Larastats\Providers\LarastatsFilamentServiceProvider::class,
+  ]
+```
+
+:::tip Composer tip
+If you don't intend to use Filament, you should remove **_LarastatsFilamentServiceProvider::class_** from your app providers array.
+:::
+
+Finally, we're going to publish the migration and configuration file:
 
 ```bash
-php artisan larastats:install
+php artisan vendor:publish --tag="larastats-migrations"
+php artisan vendor:publish --tag="larastats-config"
+```
+
+You will be able to find a migration file `create_larastats_table.php` in your `database/migration` directory and a config file `config/larastats.php`. Run the following command to migrate larastats table:
+
+```bash
 php artisan migrate
 ```
