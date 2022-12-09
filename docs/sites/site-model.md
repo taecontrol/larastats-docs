@@ -6,44 +6,62 @@ sidebar_position: 1
 
 # Site Model
 
-Site is the representation of your production apps and they are the main entity of Larastats, everything is related to a site.
+Site is the representation of your production apps, webs, platforms and they are the main entity of Larastats, everything is related to a site.
 
-## List sites
+You can create a new Site using:
 
-Here you can **list**, **create**, **edit** or **delete** sites.
-![List sites](./img/list-sites.png)
+```php
+$site = Site::create([
+  'url' => 'https://myApp.com',
+  'name' => 'My App'
+  'uptime_check_enabled' => true
+  'ssl_certificate_check_enabled' => true
+  'max_request_duration_ms' => 2000
+]);
+```
 
-## Create a site
+## Site relationships
 
-![Create a site](./img/create-sites.png)
+To obtain the uptime check from a site we may use:
 
-- **Url**: web address of you application - platform - site - service.
-- **Name**: name to display.
-- **Max. request duration**: maximum time for request in ms for **Uptime Check**.
-- **Enabled checks**: services check for your site
-  - **Uptime check**: service to check your site status.
-  - **SSL Certificate check**: service to check your site SSL certificate.
-- **API Token**: unique token to link your site using Larvis.
-- **Down for maintenance**: bypass all your checks if your site is intentionally in maintenance.
+```php
+$uptimeCheck = $site->uptimeCheck;
+```
 
-## Edit a site
+To obtain the ssl certificate check from a site we may use:
 
-![Edit a site](./img/edit-sites.png)
+```php
+$sslCertificateCheck = $site->sslCertificateCheck;
+```
 
-- **Url**: web address of you application - platform - site - service.
-- **Name**: name to display.
-- **Max. request duration**: maximum time for request in ms for **Uptime Check**.
-- **Enabled checks**: services check for your site
-  - **Uptime check**: service to check your site status.
-  - **SSL Certificate check**: service to check your site SSL certificate.
-- **API Token**: unique token to link your site using Larvis.
-- **Down for maintenance**: bypass all your checks if your site is intentionally in maintenance.
+To obtain the exceptions of a site you may use:
 
-## Delete a site
+```php
+$exceptions = $site->exceptionLogs;
+```
 
-In site main view, you've to select (checkbox) the site you intend to delete, a popover menu will be available with the option to delete selected sites:
+Or by exception groups:
 
-![Delete a site](./img/delete-sites.png)
-:::danger Take care
-If you delete a site any data related to the site will be deleted aswell.
-:::
+```php
+$exceptionGroups = $site->exceptionLogGroups;
+```
+
+## Scopes
+
+You may use some of the following scopes:
+
+- scopeWhereUptimeCheckEnabled(Bulder $query): Builder
+- scopeWhereSslCertificateCheckEnabled(Bulder $query): Builder
+- scopeWhereIsNotOnMaintenance(Bulder $query): Builder
+
+## Atributes
+
+- url: _string_
+
+## Custom Site Model
+
+The following steps must be completed to create a custom site model:
+
+1. Create a new **Site** class that extends from `Illuminate\Database\Eloquent\Model` and implements the `Taecontrol\Larastats\Contracts\LarastatsSite` interface.
+2. Implement all the properties and methods required, you can guide yourself with the original `Site.php` model from Larastats.
+3. Replace the new Site model class in the configuration file.

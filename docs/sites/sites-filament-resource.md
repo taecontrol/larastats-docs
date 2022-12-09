@@ -6,9 +6,7 @@ sidebar_position: 2
 
 # Sites Filament Resource
 
-Site is the representation of your production apps and they are the main entity of Larastats, everything is related to a site.
-
-If it's your first time setting up Larastats, your sites table will be empty, so we need to create a new Site, you may do this pressing **Create a Site** on dashboard or going to Site (sidebar), and pressing **New Site** (button).
+If you are setting up larastats for the first time, there are probably no records in the sites table, in order to create new sites you may press **Create a Site** on home dashboard or you may go to Site (sidebar), and press **New Site** button.
 
 ## List sites
 
