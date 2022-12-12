@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklarastats_docs=self.webpackChunklarastats_docs||[]).push([[947],{6267:e=>{e.exports=JSON.parse('{"title":"Sites","slug":"/category/sites","permalink":"/category/sites","navigation":{"previous":{"title":"Events","permalink":"/events"},"next":{"title":"Site Model","permalink":"/site-model"}}}')}}]);
