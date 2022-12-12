@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunklarastats_docs=self.webpackChunklarastats_docs||[]).push([[931],{7941:s=>{s.exports=JSON.parse('{"title":"Sites","slug":"/category/sites","permalink":"/larastats-docs/category/sites","navigation":{"previous":{"title":"Events","permalink":"/larastats-docs/events"},"next":{"title":"Site Model","permalink":"/larastats-docs/site-model"}}}')}}]);
