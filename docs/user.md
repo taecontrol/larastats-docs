@@ -1,10 +1,10 @@
 ---
-id: user-model
-slug: /user-model
-sidebar_position: 1
+id: users
+slug: /users
+sidebar_position: 7
 ---
 
-# User model
+# Users
 Larastats comes with its own user model (it have a default structure with some modifications) however, you will most likely want to use your project's user model. If that's the case, the next section will help you make the change on Larastats.
 
 ## Custom User Model

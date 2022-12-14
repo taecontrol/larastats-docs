@@ -1,7 +1,7 @@
 ---
 id: notifications
 slug: /notifications
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Notifications
@@ -57,10 +57,12 @@ Then we add `slack` on channels in `larastats.php` configuration file:
 ]
 ```
 
-There is a `SLACK_WEBHOOK_URL` that you must add in your `.env` file. You can obtain this webhook after creating a [Slack App](https://api.slack.com/apps?new_app=1) and configure an "Incoming Webhook", finally Slack will provide you with a Webhook URL:
+You'll need a Webhook URL from Slack, you can obtain this webhook after creating a [Slack App](https://api.slack.com/apps?new_app=1) and configure an "Incoming Webhook", then add the Webhook URL on the `SLACK_WEBHOOK_URL` in your project `.env`:
 
 ```bash
 SLACK_WEBHOOK_URL=https://hooks.slack.com/services/TTW2G=asdW3/B042W9dsd9L/D1D329QLMNsdi12
 ```
 
-Finally, if you're using a custom user model, you must implement the `routeNotificationForSlack():string`.
+:::tip Note
+Your user model must implement the `routeNotificationForSlack():string` function.
+:::
